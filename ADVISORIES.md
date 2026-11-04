@@ -1,0 +1,17 @@
+# Offline advisory review — v1.8
+
+Import CycloneDX/SPDX component originals in FIRMGLASS, then choose **Import OSV JSON** in Advisory review. A single OSV record or `{ "vulns": [...] }` is accepted. Each file is limited to 1 MiB; a project retains 100 advisory records, 500 append-only applicability reviews and at most 5,000 package candidates per device. Oversized additions are rejected before mutating the project. There is no automatic feed, refresh or external database request.
+
+Original bytes are evidence. Records retain the required source modification date, optional publication/withdrawal dates and the local import time. An old date is not evidence that a record is current. Import a newer dated original as another snapshot; existing reviews remain bound to their earlier advisory original and component/version/evidence identity. Identical advisory/SBOM originals cannot be imported twice for the same device. A withdrawn record stays visible for historical review.
+
+Package URL comparison removes the version while retaining namespace, qualifiers and subpath. Qualifier order is normalized. Invalid PURLs are never used for PURL matching. Declared ecosystem/name matching is limited to exact declared values and explicit mappings for npm, PyPI, crates.io, Maven, Go and NuGet; no fuzzy or cross-ecosystem name matching. Package-type-specific aliases/case equivalence are not guessed. A qualified PURL may therefore require manual investigation when the source only provides an unqualified one. SBOM comparisons without a valid PURL use declared ecosystem, supplier, group and name, labeled weaker identity. Duplicate declarations remain ambiguous instead of being silently collapsed.
+
+An explicitly listed version is a candidate, not a verdict. SEMVER, ECOSYSTEM and GIT events are displayed for manual range review; this release does not evaluate range ordering, backports, vendor patches, build flags or runtime reachability. A version not listed is not proof of non-applicability. Unmatched components are unassessed, not cleared.
+
+Use **Review** to inspect source details/ranges and record Unreviewed, Affected, Not affected, Fixed or Inconclusive. Non-unreviewed states need notes; every review needs a reviewer. Affected, Not affected and Fixed also require linked device assessment evidence separate from the advisory and SBOM. These are attributed operator conclusions, not automated test certification. Saving appends history; earlier reviews remain in project JSON. Creating a finding is a separate action after an Affected review, and the finding form still requires observed behavior.
+
+Search by component/advisory text, filter status and show additional candidate rows. Reports include the latest review, reviewer/date, rationale and source/evidence references. Reports do not automatically include advisory details or raw original bytes. Review notes can themselves contain sensitive information; review the report before sharing.
+
+Schema 1 remains supported. Old projects gain empty advisory collections. Project import verifies original evidence hashes and checks normalized advisory records against their exact preserved originals, same-device references and component snapshots. Hashes establish byte consistency, not source trustworthiness.
+
+Format reference: https://ossf.github.io/osv-schema/ . Supported fields are deliberately bounded; unmodeled source fields remain in the preserved original.
