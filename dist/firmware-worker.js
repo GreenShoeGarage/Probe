@@ -1,0 +1,2 @@
+import {inspectFirmware,searchBytes,compareFirmware} from './firmware.js';
+self.onmessage=async({data})=>{try{const bytes=new Uint8Array(await data.file.arrayBuffer());let result;if(data.op==='inspect')result=await inspectFirmware(bytes,p=>self.postMessage({progress:p}));else if(data.op==='search')result=searchBytes(bytes,data.query,data.mode);else if(data.op==='compare')result=compareFirmware(bytes,new Uint8Array(await data.other.arrayBuffer()));else throw Error('Unknown firmware task');self.postMessage({result});}catch(e){self.postMessage({error:e.message});}};

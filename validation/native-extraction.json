@@ -1,0 +1,19 @@
+{
+  "format": "probe-bench-v1",
+  "suite": "native-extraction",
+  "method": "native-tool",
+  "startedAt": "2026-10-28T03:35:08.908Z",
+  "environment": {
+    "os": "linux 6.18.55"
+  },
+  "checks": [
+    {
+      "id": "isolation",
+      "status": "blocked",
+      "detail": "Extraction isolation probe timed out."
+    }
+  ],
+  "evidence": [],
+  "status": "blocked",
+  "endedAt": "2026-10-28T03:35:11.917Z"
+}

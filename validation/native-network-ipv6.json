@@ -1,0 +1,28 @@
+{
+  "format": "probe-bench-v1",
+  "id": "network-1793158698831",
+  "suite": "native-network",
+  "version": "1.4.0-rc.1",
+  "startedAt": "2026-10-28T03:38:18.831Z",
+  "environment": {
+    "os": "linux",
+    "release": "6.18.55",
+    "node": "v24.22.1",
+    "addressFamily": 6,
+    "nmap": null
+  },
+  "method": "native-tool",
+  "status": "blocked",
+  "checks": [
+    {
+      "id": "tool",
+      "status": "blocked",
+      "detail": "Nmap unavailable: ENOENT. Install Nmap and restart the companion."
+    }
+  ],
+  "evidence": [],
+  "limitations": [
+    "Loopback reference service only; physical IoT targets and other OS combinations require separate acceptance."
+  ],
+  "endedAt": "2026-10-28T03:38:21.860Z"
+}

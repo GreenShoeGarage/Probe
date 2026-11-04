@@ -1,0 +1,92 @@
+[
+  {
+    "id": "cmsis-dap-stm32f407vg",
+    "label": "CMSIS-DAP / STM32F407VG \u2014 unverified reference profile",
+    "adapter": "interface/cmsis-dap.cfg",
+    "target": "target/stm32f4x.cfg",
+    "transport": "swd",
+    "speedKHz": 1000,
+    "architecture": "arm",
+    "notes": "Candidate only. Match the exact chip, probe, wiring and measured voltage. Attach may halt the CPU; target/probe scripts can have additional effects. No reset or flash commands are issued by PROBE.",
+    "regions": [
+      {
+        "name": "Main flash",
+        "kind": "flash",
+        "start": "0x08000000",
+        "length": 1048576
+      },
+      {
+        "name": "SRAM",
+        "kind": "ram",
+        "start": "0x20000000",
+        "length": 131072
+      },
+      {
+        "name": "CCM RAM",
+        "kind": "ram",
+        "start": "0x10000000",
+        "length": 65536
+      }
+    ]
+  },
+  {
+    "id": "jlink-stm32f407vg",
+    "label": "J-Link / STM32F407VG \u2014 unverified reference profile",
+    "adapter": "interface/jlink.cfg",
+    "target": "target/stm32f4x.cfg",
+    "transport": "swd",
+    "speedKHz": 1000,
+    "architecture": "arm",
+    "notes": "Candidate only. Match the exact chip, probe, wiring and measured voltage. Attach may halt the CPU; target/probe scripts can have additional effects. No reset or flash commands are issued by PROBE.",
+    "regions": [
+      {
+        "name": "Main flash",
+        "kind": "flash",
+        "start": "0x08000000",
+        "length": 1048576
+      },
+      {
+        "name": "SRAM",
+        "kind": "ram",
+        "start": "0x20000000",
+        "length": 131072
+      },
+      {
+        "name": "CCM RAM",
+        "kind": "ram",
+        "start": "0x10000000",
+        "length": 65536
+      }
+    ]
+  },
+  {
+    "id": "stlink-stm32f407vg",
+    "label": "ST-Link DAP / STM32F407VG \u2014 unverified reference profile",
+    "adapter": "interface/stlink.cfg",
+    "target": "target/stm32f4x.cfg",
+    "transport": "dapdirect_swd",
+    "speedKHz": 1000,
+    "architecture": "arm",
+    "notes": "Candidate only. Match the exact chip, probe, wiring and measured voltage. Attach may halt the CPU; target/probe scripts can have additional effects. No reset or flash commands are issued by PROBE.",
+    "regions": [
+      {
+        "name": "Main flash",
+        "kind": "flash",
+        "start": "0x08000000",
+        "length": 1048576
+      },
+      {
+        "name": "SRAM",
+        "kind": "ram",
+        "start": "0x20000000",
+        "length": 131072
+      },
+      {
+        "name": "CCM RAM",
+        "kind": "ram",
+        "start": "0x10000000",
+        "length": 65536
+      }
+    ]
+  }
+]
